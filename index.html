@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JEKKARE | Launching Soon</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
     * {
       margin: 0;
@@ -16,9 +16,13 @@
 
     body, html {
       height: 100%;
-      overflow: hidden;
       background: #000;
       color: #d4af37;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
 
     video {
@@ -32,39 +36,52 @@
       filter: brightness(40%) contrast(110%);
     }
 
-    .logo-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    .logo-container img {
-      width: 260px;
-      max-width: 90%;
-      filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
+    .logo {
+      width: 180px;
+      max-width: 80%;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.5));
       animation: float 4s ease-in-out infinite;
     }
 
-    .launch-text {
-      margin-top: 20px;
-      font-size: 1.2rem;
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
       letter-spacing: 3px;
-      color: #d4af37;
-      text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+      text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
       animation: glow 2s ease-in-out infinite alternate;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translate(-50%, -55%); }
-      to { opacity: 1; transform: translate(-50%, -50%); }
+    .contact {
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: #d4af37;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .contact span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 15px;
+      right: 20px;
+      font-size: 0.85rem;
+      color: #d4af37;
+      font-style: italic;
     }
 
     @keyframes float {
-      0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-      50% { transform: translate(-50%, -50%) translateY(-10px); }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     @keyframes glow {
@@ -78,10 +95,18 @@
     <source src="video.mp4" type="video/mp4">
   </video>
 
-  <div class="logo-container">
-    <img src="logo.jpeg" alt="JEKKARE Logo">
-    <div class="launch-text">LAUNCHING SOON</div>
+  <img src="logo.jpeg" alt="JEKKARE Logo" class="logo">
+
+  <h1>Launching Soon</h1>
+
+  <div class="contact">
+    <span>📞 8593874762</span> |
+    
+    <span>✉️ info@jekkare.com</span>
+  </div>
+
+  <div class="footer">
+    By <b>Midhun Mangalraj</b>
   </div>
 </body>
 </html>
-
