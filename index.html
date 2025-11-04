@@ -1,34 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JEKKARE</title>
-    <style>
-        body {
-            background-color: black;
-            color: gold;
-            font-family: 'Arial Black', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-            flex-direction: column;
-        }
-        h1 {
-            font-size: 4em;
-            letter-spacing: 3px;
-        }
-        p {
-            font-size: 1.5em;
-            color: #d4af37;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JEKKARE | Launching Soon</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      background: black;
+      color: #d4af37;
+    }
+
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(50%);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .logo {
+      width: 220px;
+      max-width: 80%;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 3em;
+      font-weight: 500;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #d4af37, #fff8dc, #d4af37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-top: 10px;
+      color: #e0c97f;
+      letter-spacing: 1px;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      right: 25px;
+      text-align: right;
+      font-size: 1em;
+      color: #d4af37;
+    }
+
+    .footer .midhun {
+      font-family: 'Blackadder ITC', cursive;
+      font-size: 1.3em;
+      color: #d4af37;
+    }
+
+    @media (max-width: 768px) {
+      .logo { width: 160px; }
+      h1 { font-size: 2em; }
+      p { font-size: 1em; }
+    }
+  </style>
 </head>
 <body>
-    <h1>JEKKARE</h1>
-    <p>Launching Soon</p>
+
+  <video autoplay muted loop>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+
+  <div class="container">
+    <img src="logo.jpg" alt="JEKKARE Logo" class="logo">
+    <h1>Launching Soon</h1>
+    <p>📞 8593874762 | ✉️ contact@jekkare.com | ✉️ info@jekkare.com</p>
+  </div>
+
+  <div class="footer">
+    <span>By</span> <span class="midhun">Midhun Mangalraj</span>
+  </div>
+
 </body>
 </html>
+
