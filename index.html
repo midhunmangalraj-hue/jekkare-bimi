@@ -1,91 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JEKKARE</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JEKKARE | Launching Soon</title>
   <style>
-    @keyframes backgroundFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
     body {
-      background: linear-gradient(-45deg, #000000, #0a0a0a, #111111, #000000);
-      background-size: 400% 400%;
-      animation: backgroundFlow 10s ease infinite;
-      color: #d4af37;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+    }
+
+    .container {
       text-align: center;
     }
 
     .logo {
-      width: 240px; /* increased from 180px */
-      height: auto;
-      margin-bottom: 35px;
-      filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.6));
-      animation: fadeIn 2s ease;
+      width: 280px; /* Bigger logo */
+      max-width: 90%;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 0 15px #d4af37);
+      animation: fadeLogo 3s ease-in-out;
     }
 
-    .launching {
-      font-size: 0.9rem;
-      letter-spacing: 12px;
-      text-transform: uppercase;
-      margin-top: 5px;
+    .launch {
+      font-size: 28px;
+      letter-spacing: 10px;
       color: #d4af37;
-      animation: fadeIn 2s ease 0.5s both;
+      margin-bottom: 20px;
+      animation: fadeText 3s ease-in-out;
     }
 
     .contact {
-      margin-top: 10px;
-      font-size: 0.75rem;
-      color: #888;
-      letter-spacing: 2px;
-      animation: fadeIn 2s ease 1s both;
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.6;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes fadeLogo {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeText {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <img id="logo" class="logo" alt="JEKKARE Logo" />
-  <div class="launching">Launching Soon</div>
-  <div class="contact">
-    📞 8593874762&nbsp;&nbsp;✉️ info@jekkare.com
+  <div class="container">
+    <img src="logo.png" alt="JEKKARE Logo" class="logo" />
+    <h1 class="launch">L A U N C H I N G&nbsp;&nbsp;S O O N</h1>
+    <p class="contact">📞 8593874762<br>✉️ info@jekkare.com</p>
   </div>
-
-  <script>
-    const logo = document.getElementById("logo");
-    const formats = ["png", "jpeg", "jpg", "svg"];
-    let loaded = false;
-
-    (async () => {
-      for (const ext of formats) {
-        try {
-          const response = await fetch(`logo.${ext}`);
-          if (response.ok) {
-            logo.src = `logo.${ext}`;
-            loaded = true;
-            break;
-          }
-        } catch {}
-      }
-
-      if (!loaded) {
-        logo.alt = "Logo not found";
-      }
-    })();
-  </script>
 </body>
 </html>
+
 
