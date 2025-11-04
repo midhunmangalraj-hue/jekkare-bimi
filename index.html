@@ -1,129 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JEKKARE | Luxury Redefined</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Keyframes remain the same for your aesthetic */
-    @keyframes backgroundFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    body {
-      /* 2. Enhanced background size for smoother movement */
-      background: linear-gradient(-45deg, #000000, #0a0a0a, #151515, #000000);
-      background-size: 600% 600%; 
-      animation: backgroundFlow 12s ease infinite; /* Slightly slower */
-      color: #d4af37;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .logo {
-      width: 180px;
-      height: auto;
-      margin-bottom: 25px; /* Slightly more vertical space */
-      /* 3. Stronger, more focused shadow */
-      filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.7)); 
-      animation: fadeIn 1.8s ease; /* Slightly faster fade-in */
-    }
-
-    h1 {
-      font-size: 2.2rem; /* Slightly larger title */
-      letter-spacing: 7px;
-      text-transform: uppercase;
-      animation: fadeIn 1.8s ease 0.3s both;
-      font-weight: 600; /* Added weight for impact */
-    }
-
-    p {
-      font-size: 1.05rem;
-      color: #bbb;
-      margin-top: 8px;
-      letter-spacing: 4px; /* Increased letter spacing */
-      font-weight: 300;
-      animation: fadeIn 1.8s ease 0.6s both;
-    }
-
-    .contact {
-      margin-top: 35px; /* Increased top margin for separation */
-      font-size: 0.95rem; 
-      color: #999;
-      letter-spacing: 2px;
-      line-height: 1.6;
-      animation: fadeIn 1.8s ease 0.9s both;
-    }
-    
-    /* 4. Contact links (best practice & polish) */
-    .contact a {
-        color: inherit;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-    .contact a:hover {
-        color: #d4af37; /* Highlight with main gold color on hover */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEKKARE</title>
+  <style>
+    @keyframes backgroundFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); } /* Stronger vertical slide */
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* 5. Mobile Responsiveness */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.7rem;
-        letter-spacing: 5px;
-      }
-      .logo {
-        width: 140px;
-      }
+    body {
+      background: linear-gradient(-45deg, #000000, #0a0a0a, #111111, #000000);
+      background-size: 400% 400%;
+      animation: backgroundFlow 10s ease infinite;
+      color: #d4af37;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
     }
-  </style>
+
+    .logo {
+      width: 180px;
+      height: auto;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      font-size: 2rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      animation: fadeIn 2s ease 0.3s both;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #bbb;
+      margin-top: 10px;
+      letter-spacing: 3px;
+      animation: fadeIn 2s ease 0.6s both;
+    }
+
+    .contact {
+      margin-top: 25px;
+      font-size: 1rem;
+      color: #999;
+      letter-spacing: 2px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-  <img id="logo" class="logo" alt="JEKKARE Logo" />
-  <h1>JEKKARE</h1>
-  <p>Luxury Redefined</p>
-  <div class="contact">
-        <a href="tel:8593874762">📞 8593874762</a><br>
-    <a href="mailto:info@jekkare.com">✉️ info@jekkare.com</a>
-  </div>
+  <img id="logo" class="logo" alt="JEKKARE Logo" />
+  <h1>JEKKARE</h1>
+  <p>Luxury Redefined</p>
+  <div class="contact">
+    📞 8593874762<br>
+    ✉️ info@jekkare.com
+  </div>
 
-  <script>
-    const logo = document.getElementById("logo");
-    const formats = ["png", "jpeg", "jpg", "svg"];
-    let loaded = false;
+  <script>
+    const logo = document.getElementById("logo");
+    const formats = ["png", "jpeg", "jpg", "svg"];
+    let loaded = false;
 
-    (async () => {
-      for (const ext of formats) {
-        try {
-          const response = await fetch(`logo.${ext}`);
-          if (response.ok) {
-            logo.src = `logo.${ext}`;
-            loaded = true;
-            break;
-          }
-        } catch (error) {
-            // Error handling kept minimal for a sleek, silent look
-        }
-      }
+    (async () => {
+      for (const ext of formats) {
+        try {
+          const response = await fetch(`logo.${ext}`);
+          if (response.ok) {
+            logo.src = `logo.${ext}`;
+            loaded = true;
+            break;
+          }
+        } catch {}
+      }
 
-      if (!loaded) {
-        logo.alt = "JEKKARE Logo";
-      }
-    })();
-  </script>
+      if (!loaded) {
+        logo.alt = "Logo not found";
+      }
+    })();
+  </script>
 </body>
 </html>
+
