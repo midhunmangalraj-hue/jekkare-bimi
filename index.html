@@ -1,92 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JEKKARE | Launching Soon</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEKKARE</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body, html {
-      height: 100%;
+    body {
       background-color: #000;
       color: #d4af37;
-      overflow: hidden;
-    }
-
-    .container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      text-align: center;
-      animation: fadeIn 2s ease-in-out;
-      background-color: #000; /* full black */
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
     }
 
     .logo {
-      width: 200px;
-      max-width: 80%;
-      margin-bottom: 25px;
-      filter: drop-shadow(0 0 15px #d4af37);
-      animation: fadeLogo 3s ease-in-out;
+      width: 180px;
+      height: auto;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
     }
 
     h1 {
-      font-size: 1.5rem;
-      letter-spacing: 8px;
+      font-size: 2rem;
+      letter-spacing: 5px;
       text-transform: uppercase;
-      color: #d4af37;
-      text-shadow: 0 0 12px rgba(212,175,55,0.8);
-      margin-bottom: 15px;
-      animation: fadeText 3s infinite alternate;
     }
 
-    .contact-inline {
-      color: #d4af37;
+    p {
       font-size: 1rem;
+      color: #aaa;
+      margin-top: 10px;
       letter-spacing: 2px;
-      text-align: center;
-      margin-top: 5px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeText {
-      0% { opacity: 0.6; }
-      100% { opacity: 1; }
-    }
-
-    @keyframes fadeLogo {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 1.2rem; letter-spacing: 5px; }
-      .logo { width: 150px; }
-      .contact-inline { font-size: 0.9rem; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="logo.png" alt="JEKKARE Logo" class="logo" />
-    <h1>Launching Soon</h1>
-    <div class="contact-inline">
-      📞 8593874762 &nbsp;&nbsp; ✉️ info@jekkare.com
-    </div>
-  </div>
+  <img id="logo" class="logo" alt="JEKKARE Logo" />
+  <h1>JEKKARE</h1>
+  <p>Luxury Redefined</p>
+
+  <script>
+    // Try all common logo file types automatically
+    const logo = document.getElementById("logo");
+    const formats = ["png", "jpeg", "jpg", "svg"];
+    let loaded = false;
+
+    (async () => {
+      for (const ext of formats) {
+        try {
+          const response = await fetch(`logo.${ext}`);
+          if (response.ok) {
+            logo.src = `logo.${ext}`;
+            loaded = true;
+            break;
+          }
+        } catch {}
+      }
+
+      if (!loaded) {
+        logo.alt = "Logo not found";
+      }
+    })();
+  </script>
 </body>
 </html>
 
