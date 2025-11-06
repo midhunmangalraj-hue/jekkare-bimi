@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JEKKARE</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JEKKARE — Launching Soon</title>
+
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="JEKKARE — Kerala’s finest allergen-free vegan foods and premium spices. Ethically sourced, export-ready, and crafted with purpose.">
+  <meta property="og:title" content="JEKKARE — Launching Soon">
+  <meta property="og:description" content="Premium Kerala spices and vegan foods — launching soon.">
+  <meta property="og:image" content="logo.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#d4af37">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
   <style>
     @keyframes backgroundFlow {
       0% { background-position: 0% 50%; }
@@ -14,7 +29,7 @@
     body {
       background: url('cover.jpg') no-repeat center center fixed;
       background-size: cover;
-      animation: backgroundFlow 20s ease infinite;
+      animation: backgroundFlow 25s ease infinite;
       color: #d4af37;
       display: flex;
       flex-direction: column;
@@ -24,13 +39,27 @@
       margin: 0;
       font-family: 'Poppins', sans-serif;
       text-align: center;
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
     }
 
     .logo {
       width: 200px;
       max-width: 80%;
       margin-bottom: 30px;
-      filter: drop-shadow(0 0 15px #d4af37);
+      filter: drop-shadow(0 0 20px #d4af37);
       animation: fadeLogo 3s ease-in-out;
     }
 
@@ -40,20 +69,64 @@
     }
 
     .launching {
-      margin-top: 20px;
-      font-size: 0.8rem;
+      margin-top: 15px;
+      font-size: 0.9rem;
       letter-spacing: 4px;
-      color: #4b2e05; /* Dark luxury brown */
+      color: #f1e3b0;
       text-transform: uppercase;
       animation: fadeIn 2s ease 0.9s both;
     }
 
+    form {
+      margin-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      animation: fadeIn 2s ease 1.3s both;
+    }
+
+    input[type="email"] {
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid #d4af37;
+      background: transparent;
+      color: #fff;
+      width: 240px;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    button {
+      padding: 12px 20px;
+      border-radius: 8px;
+      background: #d4af37;
+      border: none;
+      font-weight: 600;
+      color: #2d1f0a;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #f5d67a;
+    }
+
     .contact {
-      margin-top: 15px;
-      font-size: 0.8rem;
-      color: #ccc;
-      letter-spacing: 2px;
-      animation: fadeIn 2s ease 1.2s both;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: #e0c674;
+      letter-spacing: 1px;
+      animation: fadeIn 2s ease 1.5s both;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 12px;
+      font-size: 0.75rem;
+      color: #888;
+      letter-spacing: 1px;
+      text-align: center;
     }
 
     @keyframes fadeIn {
@@ -63,12 +136,24 @@
   </style>
 </head>
 <body>
-  <img id="logo" class="logo" alt="JEKKARE Logo" />
-  <div class="launching">Launching Soon</div>
-  <div class="contact">
-    📞 8593874762<br>
-    ✉️ info@jekkare.com
+  <div class="overlay"></div>
+  <div class="content">
+    <img id="logo" class="logo" alt="JEKKARE Logo" />
+    <div class="launching">Launching Soon</div>
+
+    <!-- Email Signup -->
+    <form action="https://formspree.io/f/yourFormID" method="POST">
+      <input type="email" name="email" placeholder="Get launch updates" required>
+      <button type="submit">Notify Me</button>
+    </form>
+
+    <div class="contact">
+      📞 +91 8593874762<br>
+      ✉️ info@jekkare.com
+    </div>
   </div>
+
+  <footer>© 2025 JEKKARE FOODS (OPC) PRIVATE LIMITED — All Rights Reserved</footer>
 
   <script>
     const logo = document.getElementById("logo");
@@ -86,10 +171,7 @@
           }
         } catch {}
       }
-
-      if (!loaded) {
-        logo.alt = "Logo not found";
-      }
+      if (!loaded) logo.alt = "Logo not found";
     })();
   </script>
 </body>
