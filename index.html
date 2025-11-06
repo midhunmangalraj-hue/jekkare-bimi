@@ -39,11 +39,11 @@
       margin: 0;
       font-family: 'Poppins', sans-serif;
       text-align: center;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     .overlay {
-      position: absolute;
+      position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: rgba(0, 0, 0, 0.45);
@@ -53,6 +53,7 @@
     .content {
       position: relative;
       z-index: 1;
+      padding: 20px;
     }
 
     .logo {
@@ -121,22 +122,123 @@
     }
 
     footer {
-      position: absolute;
-      bottom: 12px;
+      position: relative;
+      bottom: 0;
       font-size: 0.75rem;
       color: #888;
       letter-spacing: 1px;
       text-align: center;
+      padding: 40px 0;
+      background: rgba(0, 0, 0, 0.3);
+      margin-top: 60px;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* ORIGIN STORY */
+    .origin {
+      padding: 100px 20px 60px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(20,12,0,0.95));
+      color: #f1e3b0;
+      text-align: center;
+      animation: fadeIn 2s ease 0.5s both;
+    }
+    .origin h2 {
+      font-size: 2rem;
+      color: #d4af37;
+      margin-bottom: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .origin p {
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-weight: 300;
+      font-size: 1rem;
+    }
+
+    /* VALUES SECTION */
+    .values {
+      padding: 80px 20px;
+      background: #1b1304;
+      text-align: center;
+    }
+    .values h2 {
+      color: #d4af37;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(212,175,55,0.5);
+      border-radius: 16px;
+      padding: 25px;
+      width: 260px;
+      color: #f1e3b0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 25px rgba(212,175,55,0.4);
+    }
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    /* COUNTDOWN SECTION */
+    .countdown {
+      padding: 80px 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(40,28,5,0.95));
+      text-align: center;
+      color: #f1e3b0;
+    }
+    .countdown h2 {
+      color: #d4af37;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .timer {
+      font-size: 1.5rem;
+      color: #f1e3b0;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      border: 1px solid #d4af37;
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(212,175,55,0.3);
+    }
+    .launch-note {
+      font-size: 0.9rem;
+      color: #d4af37;
+      margin-top: 12px;
+    }
+
+    @media(max-width:700px){
+      .cards{flex-direction:column;align-items:center;}
+      .card{width:90%;}
+    }
   </style>
 </head>
+
 <body>
   <div class="overlay"></div>
+
   <div class="content">
     <img id="logo" class="logo" alt="JEKKARE Logo" />
     <div class="launching">Launching Soon</div>
@@ -153,9 +255,52 @@
     </div>
   </div>
 
+  <!-- ORIGIN STORY SECTION -->
+  <section class="origin">
+    <h2>Our Origin</h2>
+    <p>Born in Kerala. Crafted for the World.</p>
+    <div class="story">
+      <p>
+        JEKKARE began with a single truth — that purity and inclusivity can share the same plate.
+        From jackfruit seeds to Kerala’s legendary spices, we create foods that unite the world through taste.
+        Every product is a tribute to our farmers, our roots, and our promise of allergen-free goodness.
+      </p>
+    </div>
+  </section>
+
+  <!-- VALUES SECTION -->
+  <section class="values">
+    <h2>Our Values</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🌿</div>
+        <h3>Purity</h3>
+        <p>We source directly from Kerala’s farms, keeping nature untouched and flavors pure.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🤝</div>
+        <h3>Inclusion</h3>
+        <p>An SC-led venture built on equality, empowering every hand that crafts JEKKARE.</p>
+      </div>
+      <div class="card">
+        <div class="icon">♻️</div>
+        <h3>Sustainability</h3>
+        <p>From biodegradable packaging to zero-waste production, we stand for balance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN SECTION -->
+  <section class="countdown">
+    <h2>Countdown to Launch</h2>
+    <div id="launchTimer" class="timer"></div>
+    <p class="launch-note">We’re almost ready to share our world of Kerala spices and vegan foods with you.</p>
+  </section>
+
   <footer>© 2025 JEKKARE FOODS (OPC) PRIVATE LIMITED — All Rights Reserved</footer>
 
   <script>
+    // Dynamic logo format loader
     const logo = document.getElementById("logo");
     const formats = ["png", "jpeg", "jpg", "svg"];
     let loaded = false;
@@ -173,6 +318,22 @@
       }
       if (!loaded) logo.alt = "Logo not found";
     })();
+
+    // Countdown Timer
+    const launchDate = new Date("2025-12-25T00:00:00").getTime();
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+      if (distance < 0) {
+        document.getElementById("launchTimer").innerHTML = "Now Live!";
+        clearInterval(timer);
+        return;
+      }
+      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      document.getElementById("launchTimer").innerHTML = `${d}d ${h}h ${m}m`;
+    }, 1000);
   </script>
 </body>
 </html>
