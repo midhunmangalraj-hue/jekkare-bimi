@@ -16,17 +16,63 @@
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;background:#0b0b0b;color:#f4e7c0}
 
-    /* Hero using same background + logo */
-    .hero{
-      min-height:75vh;
-      display:flex;align-items:center;justify-content:center;padding:48px 20px;background-image: url('cover.jpg');background-size:cover;background-position:center;background-attachment:fixed;position:relative;text-align:left;
-    }
-    .overlay{position:absolute;inset:0;background: linear-gradient(180deg, rgba(5,5,5,0.45), rgba(5,5,5,0.7));}
-    .container{position:relative;z-index:2;max-width:var(--max-width);width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
+    <style>
+  :root {
+    --gold:#d4af37;
+    --rich:#2d1f0a;
+    --glass: rgba(255,255,255,0.04);
+    --max-width:1100px;
+  }
 
-    .brand{
-      color:var(--gold);
-    }
+  * { box-sizing:border-box; margin:0; padding:0; }
+
+  html, body {
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+    font-family:'Poppins',sans-serif;
+    background:url('cover.jpg') no-repeat center center fixed;
+    background-size:cover;
+    background-attachment: fixed;
+    color:#f4e7c0;
+  }
+
+  /* REMOVE all backgrounds from all sections */
+  section, .hero, .container, main, footer, header {
+    background: transparent !important;
+  }
+
+  /* HERO (no bg, only layout) */
+  .hero {
+    min-height: 75vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:60px 20px;
+    text-align:left;
+    position:relative;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  h1, h2, h3, h4, p {
+    color: var(--gold);
+    text-shadow: 0 0 6px rgba(0,0,0,0.4); /* Keep text readable */
+  }
+
+  .chip {
+    background: var(--glass);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+</style>
+
     .logo{width:200px;max-width:40%;filter:drop-shadow(0 8px 30px rgba(0,0,0,0.7));display:block;margin-bottom:18px}
     h1{margin:0;font-size:clamp(26px,4vw,42px);line-height:1.02;color:var(--gold)}
     .tag{color:#efe6c8;margin-top:10px;font-weight:300}
