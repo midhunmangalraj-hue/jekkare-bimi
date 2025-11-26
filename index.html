@@ -12,67 +12,21 @@
       --muted: rgba(244,231,192,0.06);
       --glass: rgba(255,255,255,0.04);
       --max-width:1100px;
-      --panel-bg: rgba(24,24,18,0.13);
-      --panel-bg-hero: rgba(33,28,18,0.16);
     }
-    *{box-sizing:border-box;}
-    html,body{
-      height:100%;
-      margin:0;
-      font-family:'Poppins',sans-serif;
-      color:#f4e7c0;
-      position: relative;
-      background: none;
-    }
-    /* Blurred background image with fade-in */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      background: url('cover.jpg') no-repeat center center fixed;
-      background-size: cover;
-      filter: blur(10px) brightness(0.90);
-      opacity: 0;
-      transition: opacity 1.2s cubic-bezier(0.29,0.85,0.62,1);
-      animation: bgfadein 1.4s cubic-bezier(0.29,0.85,0.62,1) forwards;
-    }
-    @keyframes bgfadein {
-      to { opacity: 1; }
-    }
-    body > * { position: relative; z-index: 1; }
-    /* Content fade-in animation */
-    body {
-      opacity: 0;
-      animation: contentfadein 1.2s cubic-bezier(0.29,0.85,0.62,1) 0.1s forwards;
-    }
-    @keyframes contentfadein {
-      from { opacity: 0; transform: translateY(18px);}
-      to { opacity: 1; transform: none;}
-    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;background:#0b0b0b;color:#f4e7c0}
 
+    /* Hero using same background + logo */
     .hero{
       min-height:75vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:48px 20px;
-      background: none;
-      position:relative;
-      text-align:left;
+      display:flex;align-items:center;justify-content:center;padding:48px 20px;background-image: url('cover.jpg');background-size:cover;background-position:center;background-attachment:fixed;position:relative;text-align:left;
     }
-    .container{
-      position:relative;
-      z-index:2;
-      max-width:var(--max-width);
-      width:100%;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:1fr 420px;
-      gap:32px;
-      align-items:center
+    .overlay{position:absolute;inset:0;background: linear-gradient(180deg, rgba(5,5,5,0.45), rgba(5,5,5,0.7));}
+    .container{position:relative;z-index:2;max-width:var(--max-width);width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
+
+    .brand{
+      color:var(--gold);
     }
-    .brand{color:var(--gold);}
     .logo{width:200px;max-width:40%;filter:drop-shadow(0 8px 30px rgba(0,0,0,0.7));display:block;margin-bottom:18px}
     h1{margin:0;font-size:clamp(26px,4vw,42px);line-height:1.02;color:var(--gold)}
     .tag{color:#efe6c8;margin-top:10px;font-weight:300}
@@ -80,82 +34,41 @@
     .btn{background:var(--gold);color:var(--rich);padding:12px 18px;border-radius:12px;border:none;font-weight:700;cursor:pointer}
     .btn.ghost{background:transparent;border:1px solid rgba(212,175,55,0.18);color:var(--gold)}
 
-    .hero-card{
-      background: var(--panel-bg-hero);
-      border-radius:16px;
-      padding:22px;
-      border:1px solid rgba(212,175,55,0.08);
-      box-shadow:0 10px 40px rgba(2,2,2,0.22)
-    }
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:16px;padding:22px;border:1px solid rgba(212,175,55,0.08);box-shadow:0 10px 40px rgba(2,2,2,0.6)}
     .hero-card h3{margin:4px 0 6px;color:var(--gold)}
     .spec{display:flex;gap:12px;flex-wrap:wrap}
-    .chip{background:var(--glass);padding:8px 10px;border-radius:10px;font-size:0.9rem;color:#f7ecd6;border:1px solid rgba(212,175,55,0.06)}
+    .chip{background:var(--glass);padding:8px 10px;border-radius:10px;font-size:0.9rem;color: #f7ecd6;border:1px solid rgba(212,175,55,0.06)}
 
+    /* Sections */
     main{max-width:var(--max-width);margin:40px auto;padding:0 20px}
-    section{padding:44px 0;border-bottom:1px solid rgba(255,255,255,0.03);background: none;}
+    section{padding:44px 0;border-bottom:1px solid rgba(255,255,255,0.02)}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .product-card{
-      background: var(--panel-bg);
-      border-radius:14px;
-      padding:18px;
-      border:1px solid rgba(212,175,55,0.07);
-      min-height:220px;
-      display:flex;
-      flex-direction:column;
-      box-shadow:0 2px 12px #2d1f0a12;
-    }
+    .product-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));border-radius:14px;padding:18px;border:1px solid rgba(212,175,55,0.05);min-height:220px;display:flex;flex-direction:column}
     .product-card img{width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:10px}
     .product-card h4{margin:8px 0 6px;color:var(--gold)}
     .product-card p{flex:1;margin:0;color:#efe6c8}
     .product-footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+
+    /* Certificates & traceability */
     .cert-grid{display:flex;gap:14px;flex-wrap:wrap}
-    .cert{
-      background: var(--panel-bg);
-      padding:12px;
-      border-radius:10px;
-      border:1px solid rgba(212,175,55,0.07);
-      min-width:160px;
-      text-align:center
-    }
-    .form{
-      max-width:520px;
-      padding:18px;
-      background: var(--panel-bg);
-      border-radius:12px;
-      border:1px solid rgba(212,175,55,0.08)
-    }
+    .cert{background:var(--glass);padding:12px;border-radius:10px;border:1px solid rgba(212,175,55,0.05);min-width:160px;text-align:center}
+
+    /* Export enquiry form */
+    .form{max-width:520px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;border:1px solid rgba(212,175,55,0.06)}
     .form label{display:block;font-size:0.85rem;margin-bottom:6px;color:#efe6c8}
-    .form input,.form textarea,.form select{
-      width:100%;
-      padding:10px;
-      border-radius:8px;
-      border:1px solid rgba(255,255,255,0.07);
-      background:transparent;
-      color:#efe6c8;
-      margin-bottom:10px
-    }
+    .form input,.form textarea,.form select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#efe6c8;margin-bottom:10px}
     .form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    footer{
-      padding:24px 20px;
-      background: var(--panel-bg);
-      text-align:center;
-      color:#cfc3a1;
-      border-radius:12px 12px 0 0;
-      margin-top:32px;
-      box-shadow:0 2px 24px #2d1f0a10;
-    }
-    @media (max-width:980px){
-      .container{grid-template-columns:1fr}
-      .grid{grid-template-columns:repeat(2,1fr);}
-    }
-    @media (max-width:700px){
-      .grid{grid-template-columns:1fr}
-      .hero{padding:28px 12px}
-    }
+
+    footer{padding:24px 20px;background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.7));text-align:center;color:#cfc3a1}
+
+    /* Responsive */
+    @media (max-width:980px){.container{grid-template-columns:1fr};.grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:700px){.grid{grid-template-columns:1fr}.hero{padding:28px 12px}}
   </style>
 </head>
 <body>
   <header class="hero" role="banner">
+    <div class="overlay" aria-hidden="true"></div>
     <div class="container">
       <div>
         <img src="logo.png" alt="JEKKARE logo" class="logo" id="logoImg" />
@@ -166,11 +79,13 @@
           <button class="btn" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">Request Export Quote</button>
           <a class="btn ghost" href="#products">See Grades</a>
         </div>
+
         <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
           <div style="font-size:0.95rem;color:#efe6c8">📞 +91 85938 74762</div>
           <div style="font-size:0.95rem;color:#efe6c8">✉️ info@jekkare.com</div>
         </div>
       </div>
+
       <aside class="hero-card" aria-hidden="false">
         <h3>Export Snapshot</h3>
         <div class="spec">
@@ -184,6 +99,7 @@
       </aside>
     </div>
   </header>
+
   <main>
     <section id="products">
       <h2 style="color:var(--gold);">Our Export Grades</h2>
@@ -197,6 +113,7 @@
             <div style="color:var(--gold);font-weight:700">FOB Kochi</div>
           </div>
         </div>
+
         <div class="product-card">
           <img src="pepper-570.jpg" alt="570GL JEKKARE Black Pepper" />
           <h4>570GL — Select Grade</h4>
@@ -206,6 +123,7 @@
             <div style="color:var(--gold);font-weight:700">FOB Kochi</div>
           </div>
         </div>
+
         <div class="product-card">
           <img src="pepper-580.jpg" alt="580GL JEKKARE Black Pepper" />
           <h4>580GL — Tellicherry / Garbled</h4>
@@ -217,6 +135,7 @@
         </div>
       </div>
     </section>
+
     <section>
       <h2 style="color:var(--gold);">Quality & Compliance</h2>
       <p style="max-width:820px;margin:auto;line-height:1.6;color:#efe6c8">JEKKARE adheres to strict European import standards. Every lot is steam-sterilized at certified facilities, accompanied by complete lab reports (pesticide residue, aflatoxin, microbiological) and phytosanitary certificates. Traceability back to village & farmer is included for each shipment.</p>
@@ -227,10 +146,12 @@
         <div class="cert">🔍 Traceable Batch Code</div>
       </div>
     </section>
+
     <section>
       <h2 style="color:var(--gold);">Why Europe?</h2>
       <p style="max-width:820px;margin:auto;line-height:1.6;color:#efe6c8">European specialty buyers value aroma, consistency and clean lots. JEKKARE focuses on steam-processed, low-moisture pepper that meets EU food safety limits and commands a premium in specialty retail, gastronomy and private label channels.</p>
     </section>
+
     <section id="enquiry">
       <h2 style="color:var(--gold);">Export Enquiry</h2>
       <div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;align-items:flex-start">
@@ -238,8 +159,10 @@
           <input type="hidden" name="source" value="website_export_enquiry">
           <label for="company">Company / Buyer Name</label>
           <input id="company" name="company" placeholder="e.g. Gourmet Spices GmbH" required>
+
           <label for="country">Country</label>
           <input id="country" name="country" placeholder="Country of import e.g. Germany" required>
+
           <div class="row">
             <div>
               <label for="qty">Quantity (kg)</label>
@@ -254,10 +177,13 @@
               </select>
             </div>
           </div>
+
           <label for="message">Message / Requirements</label>
           <textarea id="message" name="message" rows="4" placeholder="Shipping terms, expected delivery date, packaging preferences..."></textarea>
+
           <button class="btn" type="submit">Send Enquiry</button>
         </form>
+
         <div style="max-width:380px">
           <h3 style="color:var(--gold);margin-top:0">Contact</h3>
           <p style="color:#efe6c8;margin:0">📞 +91 85938 74762<br>✉️ info@jekkare.com</p>
@@ -267,7 +193,9 @@
         </div>
       </div>
     </section>
+
   </main>
+
   <footer>
     <div style="max-width:var(--max-width);margin:0 auto;padding:0 20px">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
@@ -276,15 +204,16 @@
       </div>
     </div>
   </footer>
+
   <script>
-    // Basic logo fallback loader
+    // Basic logo fallback loader (keeps existing logic)
     (async ()=>{
       const logoEl = document.getElementById('logoImg');
       const exts=['png','svg','jpg','jpeg'];
       for(const e of exts){
         try{
-          const r = await fetch('logo.'+e,{method:'HEAD'});
-          if(r.ok){logoEl.src='logo.'+e;return}
+          const r = await fetch(logo.${e},{method:'HEAD'});
+          if(r.ok){logoEl.src=logo.${e};return}
         }catch(err){}
       }
       logoEl.alt='JEKKARE logo';
