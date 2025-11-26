@@ -17,15 +17,60 @@
     html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;background:#0b0b0b;color:#f4e7c0}
 
     /* Hero using same background + logo */
-  .hero {
-  min-height:75vh;
+html, body {
+  min-height: 100vh;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  /* Optionally: fallback color */
+  background: #181818;
+}
+
+/* Blurred background image fills the entire viewport */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: url('cover.jpg') no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(8px) brightness(0.9);
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* All content stays above the blurred background */
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* HERO styling without background-image: now the blur is global */
+.hero {
+  min-height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 48px 20px;
   position: relative;
   text-align: left;
-  background: none; /* Remove background-image and related properties */
+  background: none; /* No background-image here */
+}
+
+/* For crisp readable panels, add a semi-transparent background */
+.hero-card,
+.container > div,
+.product-card,
+.form,
+.cert {
+  background: rgba(30, 25, 18, 0.13);
+  border-radius: 14px;
+  box-shadow: 0 6px 32px 0 rgba(44,32,14,0.10);
 }
     .overlay{position:absolute;inset:0;background: linear-gradient(180deg, rgba(5,5,5,0.45), rgba(5,5,5,0.7));}
     .container{position:relative;z-index:2;max-width:var(--max-width);width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
