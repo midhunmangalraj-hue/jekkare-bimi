@@ -1,253 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JEKKARE BLACK GOLD</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JEKKARE</title>
   <style>
-/* ====== BASE RESET (UNCHANGED) ====== */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Poppins', sans-serif;
-  color: #e6e6e6;
-  scroll-behavior: smooth;
-  background: #000;
-}
+    @keyframes backgroundFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-/* ====== PREMIUM GOLD VARIABLES ====== */
-:root {
-  --gold: #d4af37;
-  --gold-light: #f5d97e;
-  --gold-dark: #a38729;
-  --black: #050505;
-  --soft-black: #0d0d0d;
-}
+    body {
+      background: url('cover.jpg') no-repeat center center fixed;
+      background-size: cover;
+      animation: backgroundFlow 20s ease infinite;
+      color: #d4af37;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      margin: 0;
+      scroll-behavior: smooth;
+    }
 
-/* ====== PREMIUM GOLD CURSOR ====== */
-body {
-  cursor: url('https://cur.cursors-4u.net/cursors/cur-13/cur1166.cur'), auto;
-}
+    /* HERO */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    }
 
-/* ====== BACKGROUND EFFECTS ====== */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at top, rgba(212,175,55,0.25), transparent 65%),
-              radial-gradient(circle at bottom, rgba(212,175,55,0.18), transparent 70%);
-  pointer-events: none;
-  z-index: -2;
-}
+    .logo {
+      width: 200px;
+      max-width: 80%;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 0 15px #d4af37);
+      animation: fadeLogo 3s ease-in-out;
+    }
 
-/* ====== GOLD PARTICLE GLOW ====== */
-.particle {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: var(--gold);
-  border-radius: 50%;
-  filter: blur(2px);
-  animation: floatUp linear infinite;
-  opacity: 0.7;
-  z-index: -1;
-}
-@keyframes floatUp {
-  from { transform: translateY(40vh) scale(0.6); opacity: 0.3; }
-  to { transform: translateY(-40vh) scale(1); opacity: 1; }
-}
+    @keyframes fadeLogo {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
 
-/* ====== GOLD TEXT EFFECT ====== */
-.gold-text {
-  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
-  -webkit-background-clip: text;
-  color: transparent;
-  font-weight: 700;
-  text-shadow: 0 0 12px rgba(212,175,55,0.5);
-}
+    .launching {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      color: #4b2e05;
+      text-transform: uppercase;
+      animation: fadeIn 2s ease 0.9s both;
+    }
 
-/* ====== BUTTONS (UPGRADED) ====== */
-.btn-gold {
-  padding: 14px 34px;
-  background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
-  border: none;
-  color: #000;
-  font-size: 1.1rem;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 0 18px rgba(212,175,55,0.35);
-}
-.btn-gold:hover {
-  transform: scale(1.06);
-  box-shadow: 0 0 30px rgba(212,175,55,0.6);
-}
+    .notify-form {
+      margin-top: 18px;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+    }
 
-/* ====== SECTIONS (STRONGER GOLD EDGES) ====== */
-section {
-  padding: 80px 20px;
-  position: relative;
-  background: var(--soft-black);
-  border-bottom: 1px solid rgba(212,175,55,0.2);
-}
-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
+    .notify-form input[type="email"] {
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(212,175,55,0.6);
+      background: transparent;
+      color: #fff;
+      outline: none;
+      font-size: 0.9rem;
+      min-width: 220px;
+    }
 
-/* Keep your hero image, untouched */
-.hero {
-  background: url('cover.jpg') center center/cover no-repeat fixed;
-  padding: 160px 20px;
-  text-align: center;
-  color: white;
-  position: relative;
-}
-.hero h1 {
-  font-size: 3.2rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 800;
-  text-shadow: 0 0 12px rgba(0,0,0,0.9);
-}
-.hero p {
-  font-size: 1.3rem;
-  opacity: 0.9;
-}
+    .notify-form button {
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #d4af37;
+      border: none;
+      color: #2d1f0a;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
 
-/* ====== ROYAL MODE UPGRADES (NO DATA TOUCHED) ====== */
+    .notify-form button:hover {
+      background: #f5d67a;
+    }
 
-/* Royal Gold Border Glow */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  border: 2px solid rgba(212,175,55,0.35);
-  pointer-events: none;
-  box-shadow: 0 0 25px rgba(212,175,55,0.45), inset 0 0 25px rgba(212,175,55,0.45);
-  animation: royalPulse 4s ease-in-out infinite;
-}
-@keyframes royalPulse {
-  0% { opacity: 0.35; }
-  50% { opacity: 0.8; }
-  100% { opacity: 0.35; }
-}
+    .contact {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      color: #fff;
+      letter-spacing: 2px;
+      text-shadow: 0 0 5px #000;
+      animation: fadeIn 2s ease 1.2s both;
+    }
 
-/* Royal Gold Ember Particles */
-.ember {
-  position: fixed;
-  width: 4px;
-  height: 4px;
-  background: var(--gold-light);
-  border-radius: 50%;
-  filter: blur(1px);
-  opacity: 0.7;
-  animation: emberFloat 6s linear infinite;
-  z-index: -1;
-}
-@keyframes emberFloat {
-  from { transform: translateY(60vh) translateX(-20px); opacity: 0.3; }
-  to { transform: translateY(-60vh) translateX(20px); opacity: 1; }
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-/* Royal Gold Hover Ripple */
-.btn-gold {
-  position: relative;
-  overflow: hidden;
-}
-.btn-gold::after {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  top: 50%;
-  left: 50%;
-  background: rgba(255,255,255,0.25);
-  transform: translate(-50%, -50%) scale(0);
-  border-radius: 50%;
-  transition: 0.5s ease;
-}
-.btn-gold:hover::after {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 0;
-}
+    /* SCROLL SECTIONS */
+    section {
+      padding: 80px 20px;
+      color: #f4e7c0;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
 
-/* Royal Smooth Page Glow */
-html {
-  scroll-behavior: smooth;
-}
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* Royal Hero Subtle Zoom */
-.hero {
-  animation: royalZoom 12s ease-in-out infinite;
-}
-@keyframes royalZoom {
-  0% { background-size: 100%; }
-  50% { background-size: 105%; }
-  100% { background-size: 100%; }
-}
-</style>
+    h2 {
+      color: #d4af37;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .origin p,
+    .founder-text,
+    .mission p {
+      max-width: 760px;
+      margin: auto;
+      line-height: 1.8;
+      font-size: 0.95rem;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .founder-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #d4af37;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    .mission {
+      margin-top: 40px;
+    }
+
+    .mission-points {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .point {
+      border: 1px solid rgba(212,175,55,0.5);
+      border-radius: 20px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      color: #d4af37;
+      background: rgba(0,0,0,0.3);
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .card {
+      width: 250px;
+      border: 1px solid rgba(212,175,55,0.4);
+      border-radius: 10px;
+      padding: 20px;
+      background: rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: #d4af37;
+    }
+
+    #launchTimer {
+      font-size: 1.3rem;
+      border: 1px solid #d4af37;
+      padding: 8px 16px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(212,175,55,0.2);
+      margin-bottom: 10px;
+      background: rgba(0,0,0,0.3);
+    }
+
+    .launch-note {
+      color: #d4af37;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width:700px){
+      .notify-form input[type="email"] { min-width: 150px; }
+      .cards { flex-direction: column; align-items: center; }
+      .card { width: 90%; }
+    }
+  </style>
 </head>
 <body>
-  <header class="hero" role="banner">
-    <div class="container">
-      <div>
-        <img src="logo.png" alt="JEKKARE logo" class="logo fade-in stagger-1" />
-        <h1 class="brand fade-in stagger-2">JEKKARE — Ultra Premium Black & Gold Pepper</h1>
-        <div class="tag fade-in stagger-3">550GL • 570GL • 580GL — Steam-washed & Sterilized • Export Grade</div>
-        <p class="fade-in stagger-4" style="max-width:640px;margin-top:12px;line-height:1.55">
-          JEKKARE sources single-origin Malabar & Tellicherry pepper from Kerala’s smallholder farms. We hand-select, steam-process and quality-test every lot so European chefs and specialty distributors receive clean, aromatic, export-grade pepper with full traceability.
-        </p>
-        <div class="cta-row fade-in stagger-5">
-          <button class="btn" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">Request Export Quote</button>
-          <a class="btn ghost" href="#products">See Grades</a>
-        </div>
-      </div>
+  <!-- HERO -->
+  <div class="hero">
+    <img id="logo" class="logo" alt="JEKKARE Logo" />
+    <div class="launching">Launching Soon</div>
 
-      <aside class="hero-card fade-in stagger-3">
-        <h3>Export Snapshot</h3>
-        <div class="spec">
-          <div class="chip">MOQ: 500 kg</div>
-          <div class="chip">25kg / 50kg Kraft / Vacuum</div>
-          <div class="chip">FOB / CIF</div>
-        </div>
-        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:14px 0">
-        <h4 style="color:var(--gold);margin:6px 0">Key Tests</h4>
-        <p style="margin:0;font-size:0.95rem;color:#efe6c8">
-          Steam sterilized • Pesticide residue • Aflatoxin • Moisture ≤12% • COA & Phytosanitary
-        </p>
-      </aside>
+    <form class="notify-form" action="https://formspree.io/f/yourFormID" method="POST">
+      <input type="email" name="email" placeholder="Your email for launch updates" required />
+      <button type="submit">Notify Me</button>
+    </form>
+
+    <div class="contact">
+      📞 <strong>+91 85938 74762</strong><br>
+      ✉️ <strong>info@jekkare.com</strong>
     </div>
-  </header>
+  </div>
 
-  <main>
-    <section id="products" class="fade-in stagger-1">
-      <h2 style="color:var(--gold)">Our Export Grades</h2>
-      <div class="grid">
-        <div class="product-card">
-          <img src="pepper-550.jpg" />
-          <h4>550GL — Premium Grade</h4>
-          <p>Balanced size and aroma. Steam-washed for safety while keeping essential oils.</p>
-          <div class="product-footer"><span>MOQ 500 kg</span><span style="color:var(--gold)">FOB Kochi</span></div>
-        </div>
+  <!-- SCROLL SECTIONS -->
+  <section class="origin">
+    <h2>Our Origin</h2>
+    <p>
+      Born in Kerala. Crafted for the world.<br><br>
+      JEKKARE began with a single truth — that purity and inclusivity can share the same plate.
+      From jackfruit seeds to Kerala’s legendary spices, we create foods that unite the world through taste.
+      Every product is a tribute to our farmers, our roots, and our promise of allergen-free goodness.
+    </p>
+  </section>
 
-        <div class="product-card">
-          <img src="pepper-570.jpg" />
-          <h4>570GL — Select Grade</h4>
-          <p>Larger corns with stronger aroma. Ideal for gourmet clients.</p>
-          <div class="product-footer"><span>MOQ 500 kg</span><span style="color:var(--gold)">FOB Kochi</span></div>
-        </div>
+  <section class="founder">
+    <h2>Meet the Founder</h2>
+    <img src="founder.jpg" alt="Founder Photo" class="founder-photo" />
+    <p class="founder-text">
+      I’m <strong>Midhun Mangalraj</strong> — raised in Kerala, driven by one belief:
+      true innovation starts where inclusivity meets tradition. JEKKARE transforms humble Kerala ingredients
+      into allergen-free, vegan foods that carry a story worth feeling, not just tasting.
+    </p>
 
-        <div class="product-card">
-          <img src="pepper-580.jpg" />
-          <h4>580GL — Tellicherry / Garbled</h4>
-          <p>Large premium pepper with bold aroma. Hand sorted for uniformity.</p>
-          <div class="product-footer"><span>MOQ
+    <div class="mission">
+      <h2>Our Mission</h2>
+      <p>
+        To bring the purity of Kerala’s soil to global tables — through ethically sourced spices, allergen-free innovation, and opportunities for local farmers.
+      </p>
+      <div class="mission-points">
+        <div class="point">🌱 Empower Local Farmers</div>
+        <div class="point">🌍 Deliver Traceable Foods</div>
+        <div class="point">💫 Build an Ethical Food Brand</div>
+      </div>
+    </div>
+  </section>
 
+  <section class="values">
+    <h2>Our Values</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>🌿 Purity</h3>
+        <p>Kerala-sourced ingredients, minimal processing, maximum flavor.</p>
+      </div>
+      <div class="card">
+        <h3>🤝 Inclusion</h3>
+        <p>An ethical venture creating fair opportunities across the value chain.</p>
+      </div>
+      <div class="card">
+        <h3>♻️ Sustainability</h3>
+        <p>Biodegradable packaging and low-waste processes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="countdown">
+    <h2>Countdown to Launch</h2>
+    <div id="launchTimer">—</div>
+    <p class="launch-note">We’re almost ready to share our world of Kerala spices and vegan foods with you.</p>
+  </section>
+
+  <script>
+    // Logo Loader
+    const logo = document.getElementById('logo');
+    (async () => {
+      const formats = ['png','jpeg','jpg','svg'];
+      for (const ext of formats) {
+        try {
+          const resp = await fetch(logo.${ext}, { method:'HEAD' });
+          if (resp.ok) { logo.src = logo.${ext}; break; }
+        } catch {}
+      }
+      if (!logo.src) logo.alt = 'Logo not found';
+    })();
+
+    // Fade-in on Scroll
+    const sections = document.querySelectorAll('section');
+    const reveal = () => {
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) sec.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', reveal);
+    reveal();
+
+    // Countdown
+    const launchDate = new Date('2025-12-25T00:00:00').getTime();
+    const timer = setInterval(() => {
+      const now = Date.now();
+      const distance = launchDate - now;
+      if (distance < 0) {
+        document.getElementById('launchTimer').innerText = 'Now Live!';
+        clearInterval(timer);
+        return;
+      }
+      const d = Math.floor(distance / (1000*60*60*24));
+      const h = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+      const m = Math.floor((distance % (1000*60*60)) / (1000*60));
+      document.getElementById('launchTimer').innerText = ${d}d ${h}h ${m}m;
+    }, 1000);
+  </script>
+</body>
+</html>
