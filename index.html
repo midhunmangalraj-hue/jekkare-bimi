@@ -6,7 +6,17 @@
   <title>JEKKARE — Premium Kerala Black Pepper</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ... other styles ... */
+    :root{
+      --gold:#d4af37;
+      --rich:#2d1f0a;
+      --muted: rgba(244,231,192,0.06);
+      --glass: rgba(255,255,255,0.04);
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box;}
+    html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;background:#0b0b0b;color:#f4e7c0;position:relative;}
+
+    /* FULL HEIGHT, no black at bottom! */
     body {
       min-height: 100vh;
       background: url('cover.jpg') center center/cover no-repeat;
@@ -20,13 +30,6 @@
       z-index: 0;
       pointer-events: none;
     }
-    /* ... rest of your styles ... */
-  </style>
-</head>
-<body>
-  <!-- your structure as before -->
-</body>
-</html>
 
     /* Readable text */
     h1, h2, h3, h4, .tag, .brand, p, label, .chip, .cert, .product-footer, .btn, input, textarea, select {
@@ -54,7 +57,7 @@
       background: none;
       z-index:2;
     }
-    .overlay{display: none;} /* replaced by body::before */
+    .overlay{display: none;}
     .container{position:relative;z-index:2;max-width:var(--max-width);width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
 
     .brand{ color:var(--gold);}
