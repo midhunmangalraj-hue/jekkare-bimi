@@ -17,10 +17,16 @@
     html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;background:#0b0b0b;color:#f4e7c0}
 
     /* Hero using same background + logo */
-    .hero{
-      min-height:75vh;
-      display:flex;align-items:center;justify-content:center;padding:48px 20px;background-image: url('cover.jpg');background-size:cover;background-position:center;background-attachment:fixed;position:relative;text-align:left;
-    }
+  .hero {
+  min-height:75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  position: relative;
+  text-align: left;
+  background: none; /* Remove background-image and related properties */
+}
     .overlay{position:absolute;inset:0;background: linear-gradient(180deg, rgba(5,5,5,0.45), rgba(5,5,5,0.7));}
     .container{position:relative;z-index:2;max-width:var(--max-width);width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
 
