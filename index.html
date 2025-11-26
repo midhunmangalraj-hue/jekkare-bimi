@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>JEKKARE BLACK GOLD — Ultra Premium Black & Gold</title>
 
-  <!-- Fonts -->
+  <!-- Fonts: you can keep or remove -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -24,223 +24,215 @@
 
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{
-    font-family:'Poppins',sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    overflow-x:hidden;
+
+  /* FIXED background on html, body — solid black */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #000;
   }
 
-  html, body, .hero, .hero::before, .site-container {
-    background: #000 !important;
-    background-image: none !important;
-}
+  body {
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
 
   .spice-parallax{
     position:fixed; inset:0;
-    background:url('spice-texture.jpg') center/cover no-repeat;
-    opacity:.10; pointer-events:none; z-index:-4;
+    background: url('spice-texture.jpg') center/cover no-repeat;
+    opacity:0.10; pointer-events:none; z-index:-4;
+    transform-origin:center;
     animation:spiceFloat 30s ease-in-out infinite;
   }
-  @keyframes spiceFloat{
-    0%{transform:scale(1)}
-    50%{transform:scale(1.06)}
-    100%{transform:scale(1)}
-  }
+  @keyframes spiceFloat{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}
 
   .gold-vortex{
     position:fixed; inset:0;
-    background:url('gold-vortex.png') center/cover no-repeat;
-    mix-blend-mode:screen; opacity:.12; pointer-events:none; z-index:-3;
+    background: url('gold-vortex.png') center/cover no-repeat;
+    mix-blend-mode: screen; opacity:0.12; pointer-events:none; z-index:-3;
     animation:vortexSpin 45s linear infinite;
   }
-  @keyframes vortexSpin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+  @keyframes vortexSpin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 
   .page-overlay{
     position:fixed; inset:0; pointer-events:none; z-index:-2;
-    background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.82));
+    background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.82));
   }
 
   .gold-flake{
     position:fixed;
     width:10px;height:10px;
-    background:radial-gradient(circle,#ffd769,#c89c26,#8a6a12);
+    background: radial-gradient(circle,#ffd769,#c89c26,#8a6a12);
     border-radius:50%;
     filter:blur(1px);
-    opacity:.45; z-index:-1;
-    animation:driftFlake 18s linear infinite;
+    opacity:0.45; z-index:-1;
     pointer-events:none;
+    animation:driftFlake 18s linear infinite;
   }
-  @keyframes driftFlake{
-    0%{transform:translateY(120vh);opacity:0}
-    20%{opacity:.8}
-    100%{transform:translateY(-30vh) translateX(60px);opacity:0}
-  }
+  @keyframes driftFlake{0%{transform:translateY(120vh);opacity:0}20%{opacity:.8}100%{transform:translateY(-30vh) translateX(60px);opacity:0}}
 
   header.hero{
+    position:relative;
     min-height:78vh;
-    display:flex;align-items:center;
+    display:flex; align-items:center;
     padding:80px 20px;
-    background:url('cover.jpg') center/cover fixed no-repeat;
+    background: url('cover.jpg') center/cover no-repeat fixed;
+    background-size:cover; background-attachment:fixed;
   }
 
-  .container{
-    max-width:var(--max-width);margin:0 auto;
-    display:grid;grid-template-columns:1fr 420px;
-    gap:36px;align-items:center;position:relative;z-index:2;
-  }
+  .container{max-width:var(--max-width);margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;position:relative;z-index:2}
 
-  .logo{
-    width:220px;filter:drop-shadow(0 10px 40px rgba(0,0,0,.8));
-    margin-bottom:18px;
-  }
-
-  .hero-content{transform-style:preserve-3d;transition:.18s}
+  .logo{width:220px;filter:drop-shadow(0 10px 40px rgba(0,0,0,0.8));display:block;margin-bottom:18px}
+  .hero-content{transform-style:preserve-3d;transition:transform .18s ease-out}
 
   h1.hero-title{
     font-size:clamp(28px,4.5vw,46px);
-    color:var(--gold); font-weight:700;
-    background:linear-gradient(90deg,var(--gold-dark),var(--gold-light),var(--gold));
-    -webkit-background-clip:text;
-    color:transparent;
+    margin:0;color:var(--gold);
+    font-weight:700;
+    line-height:1.02;
+    letter-spacing:0.6px;
+    background: linear-gradient(90deg,var(--gold-dark),var(--gold-light),var(--gold));
+    -webkit-background-clip:text; color:transparent;
     background-size:220%;
     animation:goldShineLoop 6s linear infinite;
-    font-family:'Cormorant Garamond',serif;
+    font-family:'Cormorant Garamond', serif;
+    text-shadow:0 8px 20px rgba(0,0,0,0.6);
   }
-  @keyframes goldShineLoop{0%{background-position:0}100%{background-position:200%}}
+  @keyframes goldShineLoop{0%{background-position:0%}100%{background-position:200%}}
 
-  .tag{margin-top:10px;font-weight:300;color:#ffefce}
-  .lead{max-width:680px;margin-top:14px;line-height:1.6;color:#efe6c8}
+  .tag{color:rgba(255,238,200,0.92);margin-top:10px;font-weight:300}
 
-  .cta-row{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+  .lead{max-width:680px;color:#efe6c8;margin-top:14px;line-height:1.6}
+
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
   .btn{
-    padding:12px 18px;border-radius:40px;cursor:pointer;
+    display:inline-block;padding:12px 18px;border-radius:40px;border:none;font-weight:700;cursor:pointer;
     background:linear-gradient(120deg,var(--gold-light),var(--gold-dark),var(--gold-light));
-    color:#000;font-weight:700;border:none;
-    transition:.45s;box-shadow:0 8px 30px rgba(212,175,55,.12);
+    color:#000; box-shadow:0 8px 30px rgba(212,175,55,0.12); transition:all .45s ease;
+    position:relative; overflow:hidden;
   }
-  .btn:hover{transform:translateY(-3px);box-shadow:0 14px 45px rgba(212,175,55,.25)}
-  .btn.ghost{background:transparent;color:var(--gold);border:1px solid rgba(255,215,0,.18)}
+  .btn:hover{ transform:translateY(-3px); box-shadow:0 14px 45px rgba(212,175,55,0.25); background-position:right; }
+  .btn.ghost{ background:transparent; border:1px solid rgba(212,175,55,0.18); color:var(--gold) }
 
   main{max-width:var(--max-width);margin:42px auto;padding:0 20px}
-  section{padding:44px 0}
+  section{padding:44px 0; position:relative}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 
   .product-card{
-    background:rgba(255,255,255,.02);
-    border-radius:14px;
-    padding:18px;border:1px solid rgba(212,175,55,.06);
-    box-shadow:0 8px 40px rgba(0,0,0,.45);
-    display:flex;flex-direction:column;
-    transition:.4s;position:relative;overflow:hidden;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:14px;padding:18px;border:1px solid rgba(212,175,55,0.06);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.45); display:flex;flex-direction:column; min-height:220px;
+    position:relative; overflow:hidden; transition:all .4s ease;
   }
-
-  .product-card:hover{transform:translateY(-8px) scale(1.02)}
-
-  .product-card img{
-    width:100%;height:130px;object-fit:cover;
-    border-radius:10px;margin-bottom:10px;
+  .product-card::before{
+    content:""; position:absolute; top:0; left:-120%; height:100%; width:80%;
+    background:linear-gradient(115deg, transparent, rgba(255,215,90,0.12), transparent);
+    transform:skewX(-18deg); transition:0.7s;
   }
+  .product-card:hover{ transform:translateY(-8px) scale(1.02); box-shadow:0 14px 60px rgba(0,0,0,0.6); }
 
-  .gold-frame{
-    border:1px solid rgba(255,215,0,.08);
-    padding:22px;border-radius:14px;position:relative;
-  }
+  .product-card img{width:100%;height:130px;object-fit:cover;border-radius:10px;margin-bottom:10px}
+  .product-card h4{color:var(--gold);margin:6px 0 8px;font-family:'Cormorant Garamond',serif}
 
-  .section-luxe{
-    width:80%;height:4px;margin:40px auto;
-    background:linear-gradient(90deg,transparent,var(--gold),transparent);
-    animation:luxePulse 3.2s infinite;
-  }
+  .gold-frame{position:relative;border-radius:14px;padding:22px;border:1px solid rgba(255,215,0,0.08);overflow:hidden}
+  .gold-frame::after{content:"";position:absolute;inset:0;padding:2px;border-radius:inherit;background:linear-gradient(120deg,transparent,var(--gold),transparent);background-size:200%;animation:borderFlow 4s linear infinite;mix-blend-mode:overlay}
+  @keyframes borderFlow{0%{background-position:0%}100%{background-position:200%}}
+
+  .section-luxe{height:4px;width:80%;margin:40px auto;background:linear-gradient(90deg,transparent,var(--gold),transparent);border-radius:8px;animation:luxePulse 3.2s infinite}
   @keyframes luxePulse{0%{opacity:.35}50%{opacity:1}100%{opacity:.35}}
 
   .glow-enter{opacity:0;transform:translateY(28px);filter:blur(6px);transition:1s}
   .glow-enter.visible{opacity:1;transform:translateY(0);filter:blur(0)}
 
-  footer{padding:26px 20px;text-align:center;background:#000;color:#cfc3a1}
+  footer{padding:26px 20px;background:linear-gradient(180deg,#000,#050505);text-align:center;color:#cfc3a1}
 
-  @media(max-width:980px){
-    .container{grid-template-columns:1fr}
-    .grid{grid-template-columns:repeat(2,1fr)}
-  }
-  @media(max-width:700px){
-    .grid{grid-template-columns:1fr}
-  }
+  @media (max-width:980px){ .container{grid-template-columns:1fr} .grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:700px){ .grid{grid-template-columns:1fr} }
   </style>
 </head>
-
 <body>
 
-<div class="spice-parallax"></div>
-<div class="gold-vortex"></div>
-<div class="page-overlay"></div>
+  <div class="spice-parallax" aria-hidden="true"></div>
+  <div class="gold-vortex" aria-hidden="true"></div>
+  <div class="page-overlay" aria-hidden="true"></div>
 
-<header class="hero">
-  <div class="container">
-    <div>
-      <img src="logo.png" class="logo" alt="logo">
-      <div class="hero-content">
-        <h1 class="hero-title">JEKKARE BLACK GOLD</h1>
-        <div class="tag">550GL • 570GL • 580GL — Steam-washed & Sterilized</div>
-        <p class="lead">JEKKARE sources single-origin Malabar & Tellicherry pepper…</p>
+  <header class="hero" role="banner" aria-label="JEKKARE hero">
+    <div class="container">
+      <div>
+        <img src="logo.png" alt="JEKKARE logo" class="logo" />
+        <div class="hero-content">
+          <h1 class="hero-title">JEKKARE BLACK GOLD</h1>
+          <div class="tag">550GL • 570GL • 580GL — Steam-washed & Sterilized • Export Grade</div>
+          <p class="lead">JEKKARE sources single-origin Malabar & Tellicherry pepper from Kerala’s smallholder farms. We hand-select, steam-process and quality-test every lot so European chefs and specialty distributors receive clean, aromatic, export-grade pepper with full traceability.</p>
 
-        <div class="cta-row">
-          <button class="btn" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">Request Export Quote</button>
-          <a class="btn ghost" href="#products">See Grades</a>
+          <div class="cta-row" style="margin-top:20px">
+            <button class="btn" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">Request Export Quote</button>
+            <a class="btn ghost" href="#products" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center">See Grades</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main>
-  <!-- (Your content remains unchanged) -->
-</main>
+  <main>
+    <!-- Your content remains unchanged -->
+  </main>
 
-<footer>
-  © JEKKARE Exports · Kerala, India
-</footer>
+  <footer>
+    <div style="max-width:var(--max-width);margin:0 auto;padding:26px 20px;text-align:center;color:#cfc3a1">
+      <div>© JEKKARE Exports · Kerala, India</div>
+      <div>IEC · MSME Registered · FSSAI · Spices Board (in progress)</div>
+    </div>
+  </footer>
 
-<script>
-/* GOLD FLAKES */
-(function(){
-  const n = 40;
-  for(let i=0;i<n;i++){
-    const f=document.createElement('div');
-    f.className='gold-flake';
-    f.style.left=Math.random()*100+'vw';
-    f.style.top=Math.random()*100+'vh';
-    f.style.animationDelay=Math.random()*18+'s';
-    f.style.opacity=0.2+Math.random()*0.7;
-    document.body.appendChild(f);
-  }
-})();
+  <script>
+    (function createFlakes(){
+      const n = 40;
+      for(let i=0;i<n;i++){
+        const f = document.createElement('div');
+        f.className = 'gold-flake';
+        f.style.left = (Math.random()*100)+'vw';
+        f.style.top = (Math.random()*100)+'vh';
+        f.style.animationDelay = (Math.random()*18)+'s';
+        f.style.opacity = 0.2 + Math.random()*0.7;
+        document.body.appendChild(f);
+      }
+    })();
 
-/* HERO MOTION */
-(function(){
-  const hero=document.querySelector('.hero-content');
-  if(!hero) return;
-  document.addEventListener('mousemove',(e)=>{
-    const x=(window.innerWidth/2-e.clientX)/40;
-    const y=(window.innerHeight/2-e.clientY)/40;
-    hero.style.transform=`rotateX(${y}deg) rotateY(${x}deg) translateZ(10px)`;
-  });
-})();
+    (function heroMotion(){
+      const hero = document.querySelector('.hero-content');
+      if(!hero) return;
+      document.addEventListener('mousemove', e => {
+        const x = (window.innerWidth/2 - e.clientX)/40;
+        const y = (window.innerHeight/2 - e.clientY)/40;
+        hero.style.transform = `rotateX(${y}deg) rotateY(${x}deg) translateZ(10px)`;
+      });
+    })();
 
-/* SCROLL REVEAL */
-(function(){
-  const els=document.querySelectorAll('.glow-enter');
-  function reveal(){
-    const trigger=window.innerHeight*0.86;
-    els.forEach(el=>{
-      const top=el.getBoundingClientRect().top;
-      if(top < trigger) el.classList.add('visible');
-    });
-  }
-  window.addEventListener('scroll',reveal);
-  reveal();
-})();
-</script>
+    (function revealOnScroll(){
+      const els = document.querySelectorAll('.glow-enter');
+      function reveal(){
+        const H = window.innerHeight;
+        els.forEach(el=>{
+          const r = el.getBoundingClientRect();
+          if(r.top < H - 100) el.classList.add('visible');
+        });
+      }
+      window.addEventListener('scroll', reveal);
+      reveal();
+    })();
+
+    (function prefersReduced(){
+      const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(media.matches){
+        document.querySelectorAll('.gold-flake').forEach(f => f.style.animation = 'none');
+      }
+    })();
+  </script>
 
 </body>
 </html>
