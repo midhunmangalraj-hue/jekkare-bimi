@@ -34,11 +34,12 @@
     overflow-x:hidden;
   }
 
-  /* ---------------------------
-     BACKDROP LAYERS (non-destructive)
-     - cover.jpg is the hero image (kept intact)
-     - spice-texture & gold-vortex are subtle overlays
-     --------------------------- */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url('cover.jpg') center center / cover no-repeat fixed;
   .spice-parallax{
     position:fixed; inset:0;
     background: url('spice-texture.jpg') center/cover no-repeat;
