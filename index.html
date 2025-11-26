@@ -294,8 +294,8 @@
       const formats = ['png','jpeg','jpg','svg'];
       for (const ext of formats) {
         try {
-          const resp = await fetch(logo.${ext}, { method:'HEAD' });
-          if (resp.ok) { logo.src = logo.${ext}; break; }
+          const resp = await fetch(`logo.${ext}`, { method:'HEAD' });
+          if (resp.ok) { logo.src = `logo.${ext}`; break; }
         } catch {}
       }
       if (!logo.src) logo.alt = 'Logo not found';
@@ -325,7 +325,7 @@
       const d = Math.floor(distance / (1000*60*60*24));
       const h = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
       const m = Math.floor((distance % (1000*60*60)) / (1000*60));
-      document.getElementById('launchTimer').innerText = ${d}d ${h}h ${m}m;
+      document.getElementById('launchTimer').innerText = `${d}d ${h}h ${m}m`;
     }, 1000);
   </script>
 </body>
