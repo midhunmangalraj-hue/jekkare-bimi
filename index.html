@@ -303,7 +303,37 @@
     <section id="enquiry" class="glow-enter">
       <h2 style="color:var(--gold);margin-bottom:12px">Export Enquiry</h2>
       <div style="display:flex;gap:28px;flex-wrap:wrap;justify-content:center;align-items:flex-start">
-        <form id="enquiryForm" action="https://formspree.io/f/xqavzplp" method="POST">
+        <form class="form" action="https://formspree.io/f/xqavzplp" method="POST">
+
+  <input type="hidden" name="source" value="website_export_enquiry">
+
+  <label for="company" style="color:#efe6c8;font-weight:600">Company / Buyer Name</label>
+  <input id="company" name="company" placeholder="e.g. Gourmet Spices GmbH" required>
+
+  <label for="country" style="color:#efe6c8;font-weight:600">Country</label>
+  <input id="country" name="country" placeholder="Country of import e.g. Germany" required>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div>
+      <label for="qty" style="color:#efe6c8;font-weight:600">Quantity (kg)</label>
+      <input id="qty" name="qty" placeholder="e.g. 500" required>
+    </div>
+    <div>
+      <label for="grade" style="color:#efe6c8;font-weight:600">Requested Grade</label>
+      <select id="grade" name="grade">
+        <option>550GL</option>
+        <option>570GL</option>
+        <option>580GL (Tellicherry)</option>
+      </select>
+    </div>
+  </div>
+
+  <label for="message" style="color:#efe6c8;font-weight:600">Message / Requirements</label>
+  <textarea id="message" name="message" rows="4"
+    placeholder="Shipping terms, expected delivery date, packaging preferences..."></textarea>
+
+  <button class="btn" type="submit">Send Enquiry</button>
+</form>
           <input type="hidden" name="source" value="website_export_enquiry">
           <label for="company" style="color:#efe6c8;font-weight:600">Company / Buyer Name</label>
           <input id="company" name="company" placeholder="e.g. Gourmet Spices GmbH" required>
